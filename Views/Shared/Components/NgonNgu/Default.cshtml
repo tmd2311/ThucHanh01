@@ -1,0 +1,29 @@
+﻿@model IEnumerable<TNgonNgu>
+
+<ul>
+    @foreach(var item in Model)
+    {
+        var getURL = "https://localhost:7050/api/sachapi/" +item.MaNgonNgu ;
+        <li><a style="cursor:pointer" onclick="showProductByCategory(@getURL)">@item.TenNgonNgu</a></li>
+    }
+    
+</ul>
+
+
+<script>
+    function hienSachTheoNgonNgu(getUrl){
+        var str="";
+        $.ajax({
+            type: 'GET',
+            URL: getUrl,
+            dataType: 'json',
+            success: function (data) {
+                $.each(data, function (key, val) {
+                    str += `
+                        <p>Thành cong</p>
+                     `;
+                });
+            }
+        });
+    }
+</script>

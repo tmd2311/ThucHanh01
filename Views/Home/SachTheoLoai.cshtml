@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "SachTheoLoai";
+    Layout = "~/Views/Shared/_LayoutThucHanh.cshtml";
+}
+
+@model List<TSach>
+
+@foreach (var item in Model)
+{
+    @await Html.PartialAsync("PartialSach", item);
+}
+
